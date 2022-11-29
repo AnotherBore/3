@@ -1,0 +1,67 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+
+<h1>Microsoft Store</h1>
+
+
+<div class="container border">
+    <div class="custom-row">
+        {% for object in xboxes %}
+        <div class="custom-row">
+            <div class="custom-row">
+                <div class="custom-col">
+                    <div class="main-image-wrapper">
+                        <img class="main-image" src="{{object.image}}" alt="">
+                    </div>
+                </div>
+                <div class="custom-col">
+                    <div class="custom-row">
+                        <button type="button" class="btn btn-secondary custom-col">
+                            <a class="nav-link active" href="/SeS"><strong>{{object.title}}</strong></a> 
+                        </button>
+                    </div>
+                    <div class="custom-row">
+                        <button type="button" class="btn btn-info custom-col">
+                            <a class="nav-link active" href="/SeS/info"><strong>Описание</strong></a>
+                        </button>
+                        <button type="button" class="btn btn-success custom-col">
+                            <a class="nav-link active" href="/SeS/image"><strong>Фото</strong></a>
+                        </button>
+                </div>
+            </div>  
+        </div>  
+        {% endfor %}
+    </div>  
+</div>
+
+{# <ul class="menu-list">
+    <li class="list-group-item">
+        <button type="button" class="btn btn-secondary">
+            <a class="nav-link active" href="/SeS"><strong>Xbox Series S</strong></a> 
+        </button>
+        
+        <button type="button" class="btn btn-info">
+            <a class="nav-link active" href="/SeS/info"><strong>Описание</strong></a>
+        </button>
+
+        <button type="button" class="btn btn-success">
+            <a class="nav-link active" href="/SeS/image"><strong>Фото</strong></a>
+        </button>
+    </li>
+
+    <li class="list-group-item">
+        <button type="button" class="btn btn-secondary">
+            <a class="nav-link active" href="/SeX"><strong>Xbox Series X</strong></a>
+        </button>
+
+        <button type="button" class="btn btn-info">
+            <a class="nav-link active" href="/SeX/info"><strong>Описание</strong></a>
+        </button>
+
+        <button type="button" class="btn btn-success">
+            <a class="nav-link active" href="/SeX/image"><strong>Фото</strong></a>
+        </button>
+    </li>
+</ul> #}
+{% endblock %}

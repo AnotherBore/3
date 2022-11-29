@@ -1,0 +1,28 @@
+.main-image-wrapper {
+    width: 100px;
+    height: 100px;
+    border: 2px solid silver;
+    margin: 2px;
+    box-shadow: 0 0 16px silver;
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+.main-image {
+    height: 100%;
+}
+
+.custom-row {
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    text-align: center;
+}
+
+.custom-col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2px;
+    text-align: center;
+}
