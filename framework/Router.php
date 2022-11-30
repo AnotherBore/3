@@ -32,7 +32,7 @@ class Router {
     // функция с помощью которой добавляем маршрут
     public function add($route_regexp, $controller) {
         // по сути просто пихает маршрут с привязанным контроллером в $routes
-        array_push($this->routes, new Route($route_regexp, $controller));
+        array_push($this->routes, new Route("#^$route_regexp$#", $controller));
     }
 
     // функция которая должна по url найти маршрут и вызывать его функцию get
@@ -42,10 +42,12 @@ class Router {
 
         // фиксируем в контроллер $default_controller
         $controller = $default_controller;
+        $matches=[];
+
         // проходим по списку $routes 
         foreach($this->routes as $route) {
             // проверяем подходит ли маршрут под шаблон
-            if (preg_match($route->route_regexp, $url)) {
+            if (preg_match($route->route_regexp, $url, $matches)) {
                 // если подходит, то фиксируем привязанные к шаблону контроллер 
                 $controller = $route->controller;
                // и выходим из цикла
@@ -57,6 +59,7 @@ class Router {
         $controllerInstance = new $controller();
         // передаем в него pdo
         $controllerInstance->setPDO($this->pdo);
+        $controllerInstance->setParams($matches);
 
         if ($controllerInstance instanceof Twig_ParentController) {
             $controllerInstance->setTwig($this->twig);

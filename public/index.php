@@ -13,6 +13,7 @@ require_once '../controllers/Twig_SeXImageController.php';
 require_once '../controllers/Twig_SeXInfoController.php';
 
 require_once '../controllers/Twig_ErrorController.php';
+require_once '../controllers/Twig_ObjectController.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -32,8 +33,11 @@ $context = [];
 $pdo = new PDO("mysql:host=localhost;dbname=microsoft_store;charset=utf8", "root", "");
 
 $router = new Router($twig, $pdo);
-$router->add("#/#", Twig_MainPageController::class);
+$router->add("/", Twig_MainPageController::class);
+$router->add("/SeS", Twig_SeSController::class);
+$router->add("/xboxes/(?P<id>)", Twig_SeSController::class);
 $router->get_or_default(Twig_ErrorController::class);
+
 
 // if ($url == "/") {
 //     $controller = new Twig_MainPageController($twig);
