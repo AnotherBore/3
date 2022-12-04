@@ -35,7 +35,7 @@ $pdo = new PDO("mysql:host=localhost;dbname=microsoft_store;charset=utf8", "root
 $router = new Router($twig, $pdo);
 $router->add("/", Twig_MainPageController::class);
 $router->add("/SeS", Twig_SeSController::class);
-$router->add("/xboxes/(?P<id>)", Twig_SeSController::class);
+$router->add("/xboxes/(?P<id>)", Twig_ObjectController::class);
 $router->get_or_default(Twig_ErrorController::class);
 
 
