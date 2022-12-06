@@ -3,7 +3,7 @@ abstract class CommonController {
     public PDO $pdo; // добавил поле
 
     public array $params; // добавил поле
-    
+
     // добавил сеттер
     public function setParams(array $params) {
         $this->params = $params;
@@ -16,6 +16,6 @@ abstract class CommonController {
     public function getContext(): array {
         return [];
     }
-    
-    abstract public function get();
+
+    public function get() {}
 }

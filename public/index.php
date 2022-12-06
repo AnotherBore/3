@@ -8,6 +8,7 @@ require_once '../controllers/ErrorController.php';
 require_once '../controllers/ObjectController.php';
 require_once '../controllers/ObjectImageController.php';
 require_once '../controllers/ObjectInfoController.php';
+require_once '../controllers/SearchController.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -28,7 +29,6 @@ $pdo = new PDO("mysql:host=localhost;dbname=microsoft_store;charset=utf8", "root
 
 $router = new Router($twig, $pdo);
 $router->add("/", MainPageController::class);
+$router->add("/search", SearchController::class);
 $router->add("/xboxes/(?P<id>\d+)", ObjectController::class);
-$router->add("/xboxes/(?P<id>\d+)/info", ObjectInfoController::class);
-$router->add("/xboxes/(?P<id>\d+)/image", ObjectImageController::class);
 $router->get_or_default(ErrorController::class);

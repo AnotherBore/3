@@ -1,0 +1,37 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<div class="container">
+    <h2>
+    Поиск
+    </h2>
+    <hr>
+    <form class="row g-3 align-items-center">
+     <div class="col-sm-3">
+        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+        <select name="object_type" class="form-select" id="specificSizeSelect">
+        <option value="all">Все</option>
+        <option selected value="Series">Series</option>
+        <option value="One">One</option>
+        </select>
+    </div>
+    <div class="col">
+        <label class="visually-hidden" for="specificSizeInputName">Name</label>
+        <input type="text" class="form-control" placeholder="Модель" name="title">
+    </div>
+    <div class="col">
+        <label class="visually-hidden" for="specificSizeInputGroupUsername">Description</label>
+        <input type="text" class="form-control" placeholder="Описание" name="description">
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-success">Найти</button>
+    </div>
+    </form>
+
+    {% for object in xboxes %}
+        <div class="border  p-2 mb-2">
+          <a href="/xboxes/{{ object.id }}">{{object.title}}</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
