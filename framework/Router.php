@@ -13,8 +13,8 @@ class Route {
 
 class Router {
     /**
-     * @var Route[]
-     */
+    * @var Route[]
+    */
     protected $routes = [];
 
     protected $twig;

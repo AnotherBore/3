@@ -1,7 +1,7 @@
 <?php
-// require_once "Twig_ParentController.php";
+require_once "BaseXboxesController.php";
 
-class Twig_ObjectController extends Twig_ParentController {
+class ObjectController extends BaseXboxesController {
     public $template = "object.twig";
 
     public function getContext(): array

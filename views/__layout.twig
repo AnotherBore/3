@@ -19,9 +19,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            {% for item in xboxes %}
+            {% for type in types %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/xboxes/{{ item.id }}">{{item.title}}</a>
+                    <a class="nav-link" href="/?type={{ type.type }}">{{ type.type|title }}</a>
                 </li>
             {% endfor %}
         </ul>

@@ -1,6 +1,6 @@
 <?php
 
-class Twig_ObjectImageController extends Twig_ParentController {
+class ObjectImageController extends BaseXboxesController {
     public $template = "object_image.twig";
 
     public function getContext(): array

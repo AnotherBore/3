@@ -1,7 +1,7 @@
 <?php
-// require_once "Twig_ParentController.php";
+require_once "BaseXboxesController.php";
 
-class Twig_ErrorController extends Twig_ParentController {
+class ErrorController extends BaseXboxesController {
     public $template = "404.twig";
     public $title = "Ошибка";
 
