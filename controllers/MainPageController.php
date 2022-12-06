@@ -1,7 +1,7 @@
 <?php
-require_once "BaseXboxesController.php";
+require_once "BaseXboxController.php";
 
-class MainPageController extends BaseXboxesController {
+class MainPageController extends BaseXboxController {
     public $template = "mainPage.twig";
     public $title = "Microsoft Store";
 
@@ -18,7 +18,6 @@ class MainPageController extends BaseXboxesController {
             $query=$this->pdo->query("SELECT * FROM xboxes");
         }
 
-        // стягиваем данные через fetchAll() и сохраняем результат в контекст
         $context['xboxes'] = $query->fetchAll();
 
         return $context;

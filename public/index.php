@@ -5,10 +5,9 @@ require_once '../framework/autoload.php';
 require_once '../controllers/MainPageController.php';
 
 require_once '../controllers/ErrorController.php';
-require_once '../controllers/ObjectController.php';
-require_once '../controllers/ObjectImageController.php';
-require_once '../controllers/ObjectInfoController.php';
+require_once '../controllers/XboxController.php';
 require_once '../controllers/SearchController.php';
+require_once '../controllers/XboxCreateController.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -30,5 +29,6 @@ $pdo = new PDO("mysql:host=localhost;dbname=microsoft_store;charset=utf8", "root
 $router = new Router($twig, $pdo);
 $router->add("/", MainPageController::class);
 $router->add("/search", SearchController::class);
-$router->add("/xboxes/(?P<id>\d+)", ObjectController::class);
+$router->add("/xboxes/create", XboxCreateController::class);
+$router->add("/xboxes/(?P<id>\d+)", XboxController::class);
 $router->get_or_default(ErrorController::class);

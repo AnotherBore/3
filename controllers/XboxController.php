@@ -1,7 +1,7 @@
 <?php
-require_once "BaseXboxesController.php";
+require_once "BaseXboxController.php";
 
-class ObjectController extends BaseXboxesController {
+class XboxController extends BaseXboxController {
     public $template = "object.twig";
 
     public function getContext(): array
@@ -23,7 +23,7 @@ class ObjectController extends BaseXboxesController {
 
         // готовим запрос к БД, допустим вытащим запись по id=3
         // тут уже указываю конкретные поля, там более грамотно
-        $query = $this->pdo->prepare("SELECT id, title, image, description FROM xboxes WHERE id = :my_id;");
+        $query = $this->pdo->prepare("SELECT * FROM xboxes WHERE id = :my_id;");
         $query->bindValue("my_id", $this->params['id']);
         $query->execute();
         // стягиваем одну строчку из базы
@@ -34,9 +34,8 @@ class ObjectController extends BaseXboxesController {
         $context['title'] = $data['title'];
         $context['image'] = $data['image'];
         $context['description'] = $data['description'];
-        // $context['description'] = nl2br($data['description'], false);
-        // $context['image'] = $data['image'];
-
+        $context['price_ru'] = $data['price_ru'];
+        $context['price_us'] = $data['price_us'];
         return $context;
     }
 }

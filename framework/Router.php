@@ -49,10 +49,10 @@ class Router {
         $controllerInstance->setPDO($this->pdo);
         $controllerInstance->setParams($matches);
 
-        if ($controllerInstance instanceof Twig_ParentController) {
+        if ($controllerInstance instanceof ParentController) {
             $controllerInstance->setTwig($this->twig);
         }
 
-        return $controllerInstance->get();
+        return $controllerInstance->process_response();
     }
 }

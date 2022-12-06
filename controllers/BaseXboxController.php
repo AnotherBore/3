@@ -1,6 +1,6 @@
 <?php
 
-class BaseXboxesController extends Twig_ParentController {
+class BaseXboxController extends ParentController {
     public function getContext(): array{
         $context = parent::getContext();
 

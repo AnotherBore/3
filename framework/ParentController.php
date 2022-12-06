@@ -1,7 +1,7 @@
 <?php
 require_once "CommonController.php";
 
-class Twig_ParentController extends CommonController {
+class ParentController extends CommonController {
     public $title = "";
     public $template = "";
     public $url_title = "";
@@ -19,7 +19,7 @@ class Twig_ParentController extends CommonController {
         return $context;
     }
 
-    public function get() {
-        echo $this->twig->render($this->template, $this->getContext());
+    public function get(array $context) {
+        echo $this->twig->render($this->template, $context);
     }
 }

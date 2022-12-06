@@ -1,7 +1,7 @@
 <?php
-require_once "BaseXboxesController.php";
+require_once "BaseXboxController.php";
 
-class SearchController extends BaseXboxesController {
+class SearchController extends BaseXboxController {
     public $template = "search.twig";
 
     public function getContext(): array
@@ -28,7 +28,7 @@ class SearchController extends BaseXboxesController {
 
         $query->execute();
 
-        $context['xboxes'] = $query->fetch();
+        $context['xboxes'] = $query->fetchAll();
 
         return $context;
 		}

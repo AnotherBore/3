@@ -1,15 +1,24 @@
 <?php
 abstract class CommonController {
-    public PDO $pdo; // добавил поле
+    public PDO $pdo;
 
-    public array $params; // добавил поле
+    public array $params;
 
-    // добавил сеттер
     public function setParams(array $params) {
         $this->params = $params;
     }
 
-    public function setPDO(PDO $pdo) { // и сеттер для него
+    public function process_response() {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $context = $this->getContext();
+        if ($method == 'GET') {
+            $this->get($context);
+        } else if ($method == 'POST') {
+            $this->post($context);
+        }
+    }
+
+    public function setPDO(PDO $pdo) {
         $this->pdo = $pdo;
     }
 
@@ -17,5 +26,6 @@ abstract class CommonController {
         return [];
     }
 
-    public function get() {}
+    public function get(array $context) {}
+    public function post(array $context) {}
 }

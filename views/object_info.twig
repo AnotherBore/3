@@ -1,7 +1,9 @@
 {% extends "object.twig" %}
 
 {% block objectContent %}
-<h5>
-    <pre>{{description}}</pre>
-</h5>
+    <h5>
+        <pre>{{description}}</pre>
+    </h5>
+    {{price_us}} <i class="fa-solid fa-dollar-sign"></i><br>
+    {{price_ru}} <i class="fa-solid fa-rouble"></i>
 {% endblock %}
