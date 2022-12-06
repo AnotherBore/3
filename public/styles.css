@@ -12,17 +12,12 @@
     height: 100%;
 }
 
-.custom-row {
-    display: flex;
-    flex-direction: row;
-    margin: 2px;
-    text-align: center;
+.col{
+    margin: 1px;
 }
 
-.custom-col {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 2px;
-    text-align: center;
+pre {
+    font-family: Arial, Helvetica, sans-serif !important;
+    overflow: auto;
+    white-space: pre-wrap;
 }
