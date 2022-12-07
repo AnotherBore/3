@@ -24,7 +24,7 @@ class XboxCreateController extends BaseXboxController {
 
 
         $sql = <<<EOL
-INSERT INTO xboxes(type, title, description, image, price_ru, price_us)
+INSERT INTO xboxes(type_FK, title, description, image, price_ru, price_us)
 VALUES(:type, :title, :description, :image_url, :price_ru, :price_us)
 EOL;
 

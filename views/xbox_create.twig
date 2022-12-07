@@ -16,13 +16,6 @@
             <label class="form-label">Название</label>
             <input type="text" class="form-control" name="title">
         </div>
-        <div class="col-3">
-            <label class="form-label">Тип</label>
-            <select class="form-control" name="type">
-                <option value="Series">Series</option>
-                <option value="One">One</option>
-            </select>
-        </div>
 				<div class="col-3">
             <label class="form-label">Цена ₽</label>
             <input type="text" class="form-control" name="price_ru">
@@ -31,7 +24,15 @@
             <label class="form-label">Цена $</label>
             <input type="text" class="form-control" name="price_us">
         </div>
-				<div class="col-12">
+        <div class="col-3">
+            <label class="form-label">Тип</label>
+            <select class="form-control" name="type">
+            {% for type in types %}
+                <option value={{type.id}}>{{type.title}}</option>
+            {% endfor %}
+            </select>
+        </div>
+		<div class="col-12">
             <label for="formFile" class="form-label">Картинка</label>
             <input class="form-control" type="file" id="image" name="image">
         </div>

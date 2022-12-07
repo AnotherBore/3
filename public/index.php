@@ -8,6 +8,7 @@ require_once '../controllers/ErrorController.php';
 require_once '../controllers/XboxController.php';
 require_once '../controllers/SearchController.php';
 require_once '../controllers/XboxCreateController.php';
+require_once '../controllers/XboxDeleteController.php';
 require_once '../controllers/TypeCreateController.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
@@ -31,6 +32,7 @@ $router = new Router($twig, $pdo);
 $router->add("/", MainPageController::class);
 $router->add("/search", SearchController::class);
 $router->add("/xboxes/create", XboxCreateController::class);
+$router->add("/xboxes/delete", XboxDeleteController::class);
 $router->add("/xboxes/create/type", TypeCreateController::class);
 $router->add("/xboxes/(?P<id>\d+)", XboxController::class);
 $router->get_or_default(ErrorController::class);

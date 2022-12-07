@@ -12,10 +12,19 @@
 
     <div class="row">
         {% for object in xboxes %}
-            <div class="col-3">
+            <div class="col-4">
                 <div class="row">
                     <div class="col">
-                        <div class="main-image-wrapper">
+                        <div class="main-image-wrapper position-relative">
+                            <div class="position-absolute" style="right:2px; top:2px">
+                                <form action="/xboxes/delete" method="POST">
+                                <input type="hidden" name="id" value={{object.id}}>
+                                    <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </form>
+
+                            </div>
                             <img class="main-image" src="{{object.image}}" alt="">
                         </div>
                     </div>
