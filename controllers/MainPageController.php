@@ -11,14 +11,22 @@ class MainPageController extends BaseXboxController {
         $context = parent::getContext();
 
         if (isset($_GET['type'])) {
-            $query = $this->pdo->prepare("SELECT * FROM xboxes WHERE type =:type");
+            $query = $this->pdo->prepare("SELECT * FROM xboxes WHERE type_FK =:type");
             $query->bindValue("type", $_GET['type']);
             $query->execute();
+            $data = $query->fetchAll();
+            $query = $this->pdo->prepare("SELECT image FROM xbox_types WHERE id =:type");
+            $query->bindValue("type", $_GET['type']);
+            $query->execute();
+            $data_type= $query->fetch();
+            $context['image_type'] = $data_type['image'];
         } else {
             $query=$this->pdo->query("SELECT * FROM xboxes");
+            $data = $query->fetchAll();
         }
 
-        $context['xboxes'] = $query->fetchAll();
+        $context['xboxes'] = $data;
+
 
         return $context;
     }

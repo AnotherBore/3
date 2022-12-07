@@ -13,10 +13,10 @@ class SearchController extends BaseXboxController {
         $description = isset($_GET['description']) ? $_GET['description'] : '';
 
         $sql = <<<EOL
-					SELECT id,title, type, description
+					SELECT id,title, type_FK, description
 					FROM xboxes
 					WHERE (:title = '' OR title like CONCAT('%', :title, '%'))
-							AND (:type ='all' OR type= :type)
+							AND (:type ='all' OR type_FK= :type)
 							AND (:description = '' OR description like CONCAT('%', :description, '%'))
 					EOL;
 

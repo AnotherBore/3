@@ -38,7 +38,7 @@ EOL;
 
         $query->execute();
 
-        $context['message'] = 'Вы успешно создали объект';
+        $context['message'] = 'Вы добавили модель консоли';
         $context['id'] = $this->pdo->lastInsertId();
 
         $this->get($context);

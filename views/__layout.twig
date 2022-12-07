@@ -21,7 +21,7 @@
         <ul class="navbar-nav">
             {% for type in types %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/?type={{ type.type }}">{{ type.type}}</a>
+                    <a class="nav-link" href="/?type={{ type.id }}">{{ type.title}}</a>
                 </li>
             {% endfor %}
             <li class="nav-item">
@@ -29,6 +29,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/xboxes/create">Добавить</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/xboxes/create/type">Типы</a>
             </li>
         </ul>
         </div>

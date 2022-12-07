@@ -4,6 +4,12 @@
 
     <h1>Microsoft Store</h1>
 
+    {% if image_type %}
+    <div class="container m-4">
+        <center><img heigth="300" width="200" src="{{image_type}}" alt=""></center>
+    </div>
+    {% endif %}
+
     <div class="row">
         {% for object in xboxes %}
             <div class="col-3">
