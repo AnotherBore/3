@@ -18,13 +18,22 @@
                         <div class="main-image-wrapper position-relative">
                             <div class="position-absolute" style="right:2px; top:2px">
                                 <form action="/xboxes/delete" method="POST">
-                                <input type="hidden" name="id" value={{object.id}}>
-                                    <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </form>
-
+                                    <input type="hidden" name="id" value={{object.id}}>
+                                        <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </form>
                             </div>
+
+                            <div class="position-absolute" style="right:2px; bottom:2px">
+                                <form action="/xboxes/{{object.id}}/update" method="POST">
+                                    <input type="hidden" name="id" value={{object.id}}>
+                                        <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-pencil"></i>
+                                    </button>
+                                </form>
+                            </div>
+
                             <img class="main-image" src="{{object.image}}" alt="">
                         </div>
                     </div>
