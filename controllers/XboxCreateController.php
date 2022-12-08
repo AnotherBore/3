@@ -10,6 +10,7 @@ class XboxCreateController extends BaseXboxController {
     }
 
     public function post(array $context) {
+
         $title = $_POST['title'];
         $description = $_POST['description'];
         $type = $_POST['type'];

@@ -27,7 +27,6 @@ class MainPageController extends BaseXboxController {
 
         $context['xboxes'] = $data;
 
-
         return $context;
     }
 }
