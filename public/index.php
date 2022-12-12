@@ -11,6 +11,8 @@ require_once '../controllers/XboxCreateController.php';
 require_once '../controllers/XboxDeleteController.php';
 require_once '../controllers/XboxUpdateController.php';
 require_once '../controllers/TypeCreateController.php';
+require_once '../controllers/LoginController.php';
+require_once '../controllers/LogoutController.php';
 
 require_once '../middlewares/LoginRequiredMiddleware.php';
 
@@ -19,6 +21,9 @@ $twig = new \Twig\Environment($loader, [
     "debug" => true // добавляем тут debug режим
 ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+session_set_cookie_params(60*60*10);
+session_start();
 
 $title = "";
 $template = "";
@@ -33,8 +38,9 @@ $pdo = new PDO("mysql:host=localhost;dbname=microsoft_store;charset=utf8", "root
 
 $router = new Router($twig, $pdo);
 $router->add("/", MainPageController::class);
+$router->add("/login", LoginController::class);
 $router->add("/search", SearchController::class);
-// $router->add("/show-route", ShowRouteController::class);
+$router->add("/logout", LogoutController::class);
 
 $router->add("/xboxes/create", XboxCreateController::class)
     ->middleware(new LoginRequiredMiddleware());

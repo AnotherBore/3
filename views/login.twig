@@ -1,0 +1,22 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<div class="row align-items-center">
+<form enctype="multipart/form-data" method="POST" class="row">
+		<div class="col-3 text-center">
+				<label class="form-label">Логин</label>
+				<input type="text" class="form-control" name="username">
+		</div>
+		<div class="col-3">
+				<label class="col-3 form-label">Пароль</label>
+				<input type="password" class="form-control" name="password">
+		</div>
+		<div class="row mt-4">
+			<div class="col-1">
+				<button type="submit" class="btn btn-primary">Войти</button>
+			</div>
+    </div>
+</form>
+</div>
+
+{% endblock %}

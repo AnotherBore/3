@@ -17,11 +17,11 @@ class XboxCreateController extends BaseXboxController {
         $price_ru = $_POST['price_ru'];
         $price_us = $_POST['price_us'];
 
-         $tmp_name = $_FILES['image']['tmp_name'];
-         $name =  $_FILES['image']['name'];
+        $tmp_name = $_FILES['image']['tmp_name'];
+        $name =  $_FILES['image']['name'];
 
-         move_uploaded_file($tmp_name, "../public/media/$name");
-         $image_url = "/media/$name";
+        move_uploaded_file($tmp_name, "../public/media/$name");
+        $image_url = "/media/$name";
 
 
         $sql = <<<EOL
