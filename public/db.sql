@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Дек 07 2022 г., 18:01
+-- Время создания: Дек 13 2022 г., 12:09
 -- Версия сервера: 10.6.11-MariaDB-log
 -- Версия PHP: 8.1.11
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- База данных: `microsoft_store`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `password` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'oleg', 'oleg'),
+(2, 'admin', 'SuperSuperPolicy');
 
 -- --------------------------------------------------------
 
@@ -73,6 +93,12 @@ INSERT INTO `xbox_types` (`id`, `title`, `image`) VALUES
 --
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `xboxes`
 --
 ALTER TABLE `xboxes`
@@ -90,16 +116,22 @@ ALTER TABLE `xbox_types`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблицы `xboxes`
 --
 ALTER TABLE `xboxes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `xbox_types`
 --
 ALTER TABLE `xbox_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
